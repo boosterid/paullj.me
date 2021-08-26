@@ -1,0 +1,45 @@
+{
+  "root": true,
+  "project": {
+    "name": "paullj.me"
+  },
+  "api": {
+    "projectId": "ofdwptou",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "media",
+    "@sanity/dashboard",
+    "dashboard-widget-netlify",
+    "@sanity/code-input"
+  ],
+  "env": {
+    "development": {
+      "api": {
+        "dataset":"development"
+      },
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/image/asset-sources",
+      "path": "./parts/assetSources.js"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./parts/dashboardConfig.js"
+    }
+  ]
+}
