@@ -13,8 +13,8 @@ export default {
         sites: [
           {
             title: 'Production',
-            apiId: 'b9b6bc30-fe5b-4e0e-bce3-b16f99d7943a',
-            buildHookId: '6126bb066f59b23f49d9f3e7',
+            apiId: '1ae2ef23-2d0b-4a5a-8e7e-989003ea4ef8',
+            buildHookId: '6127ac07612b88078905d178',
           },
         ],
       }
