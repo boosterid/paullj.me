@@ -1,6 +1,6 @@
 
 [build]
   base = "web/"
-  command = "yarn export"
+  command = "yarn build"
   publish = "build/"
   functions = "functions/"
