@@ -14,7 +14,7 @@
 	"devDependencies": {
 		"@sanity/image-url": "^0.140.22",
 		"@sveltejs/adapter-static": "^1.0.0-next.17",
-		"@sveltejs/kit": "next",
+		"@sveltejs/kit": "^1.0.0-next.158",
 		"@tailwindcss/aspect-ratio": "^0.2.1",
 		"@tailwindcss/typography": "^0.4.1",
 		"autoprefixer": "^10.3.1",
