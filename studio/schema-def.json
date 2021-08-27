@@ -1,0 +1,428 @@
+{
+  "type": "SchemaRoot",
+  "documents": [
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
+      "name": "post",
+      "title": "Post",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "title",
+          "title": "Title",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "title",
+            "readOnly": false,
+            "title": "Title",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "slug",
+          "title": "Slug",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "slug",
+            "readOnly": false,
+            "title": "Slug",
+            "hasValidation": false,
+            "type": "Slug"
+          }
+        },
+        {
+          "name": "description",
+          "title": "Description",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "description",
+            "readOnly": false,
+            "title": "Description",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "publishedAt",
+          "title": "Published at",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "publishedAt",
+            "readOnly": false,
+            "title": "Published at",
+            "hasValidation": false,
+            "type": "Datetime"
+          }
+        },
+        {
+          "name": "body",
+          "title": "Body",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "body",
+            "readOnly": false,
+            "title": "Body",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "blockContent"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
+      "name": "author",
+      "title": "Author",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "name",
+          "title": "Name",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "name",
+            "readOnly": false,
+            "title": "Name",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "slug",
+          "title": "Slug",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "slug",
+            "readOnly": false,
+            "title": "Slug",
+            "hasValidation": false,
+            "type": "Slug"
+          }
+        },
+        {
+          "name": "image",
+          "title": "Image",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "image",
+            "readOnly": false,
+            "title": "Image",
+            "hasValidation": false,
+            "type": "Image",
+            "fields": null
+          }
+        },
+        {
+          "name": "biography",
+          "title": "Biography",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "biography",
+            "readOnly": false,
+            "title": "Biography",
+            "hasValidation": false,
+            "type": "Array",
+            "of": [
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": "Block",
+                "hasValidation": false,
+                "type": "Block",
+                "of": null,
+                "markDefs": []
+              }
+            ],
+            "list": null
+          }
+        }
+      ]
+    }
+  ],
+  "registeredTypes": [
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "blockContent",
+      "readOnly": false,
+      "title": "Block Content",
+      "hasValidation": false,
+      "type": "Array",
+      "of": [
+        {
+          "codegen": {
+            "required": false
+          },
+          "description": null,
+          "hidden": false,
+          "name": null,
+          "readOnly": false,
+          "title": "Block",
+          "hasValidation": false,
+          "type": "Block",
+          "of": null,
+          "markDefs": []
+        },
+        {
+          "codegen": {
+            "required": false
+          },
+          "description": null,
+          "hidden": false,
+          "name": null,
+          "readOnly": false,
+          "title": null,
+          "hasValidation": false,
+          "type": "RegistryReference",
+          "to": "figure"
+        },
+        {
+          "codegen": {
+            "required": false
+          },
+          "description": null,
+          "hidden": false,
+          "name": null,
+          "readOnly": false,
+          "title": null,
+          "hasValidation": false,
+          "type": "RegistryReference",
+          "to": "code"
+        }
+      ],
+      "list": null
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "figure",
+      "readOnly": false,
+      "title": "Figure",
+      "hasValidation": false,
+      "type": "Object",
+      "fields": [
+        {
+          "name": "image",
+          "title": "Image",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "image",
+            "readOnly": false,
+            "title": "Image",
+            "hasValidation": false,
+            "type": "Image",
+            "fields": null
+          }
+        },
+        {
+          "name": "alt",
+          "title": "Alternative Text",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "alt",
+            "readOnly": false,
+            "title": "Alternative Text",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "caption",
+          "title": "Caption",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "caption",
+            "readOnly": false,
+            "title": "Caption",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "featured",
+          "title": "Featured",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "featured",
+            "readOnly": false,
+            "title": "Featured",
+            "hasValidation": false,
+            "type": "Boolean"
+          }
+        }
+      ]
+    }
+  ]
+}
