@@ -25,11 +25,14 @@
 <script lang="ts">
   import { PortableText } from 'svelte-pote';
   import type { CustomBlockComponents, CustomSpanComponents } from 'svelte-pote';
+
   import FigureBlock from '$lib/components/FigureBlock.svelte';
+  import CodeBlock from '$lib/components/CodeBlock.svelte';
   import HighlightMark from '$lib/components/HighlightMark.svelte';
 
   const customBlockComponents: CustomBlockComponents = {
     figure: FigureBlock,
+    code: CodeBlock,
   };
   const customSpanComponents: CustomSpanComponents = {
     highlight: HighlightMark,
