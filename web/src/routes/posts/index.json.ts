@@ -4,7 +4,7 @@ import { sanity } from '$lib/utils/sanityClient';
 import { parseISO, format } from 'date-fns';
 
 const query = groq`
-  *[_type == "post" && defined(slug.current) && publishedAt < now()]| order(publishedAt desc) [$start..$end] {
+  *[_type == "post" && defined(slug.current) && !(_id in path('drafts.**')) && publishedAt < now()]| order(publishedAt desc) [$start..$end] {
     title,
     "slug": slug.current,
     publishedAt,
