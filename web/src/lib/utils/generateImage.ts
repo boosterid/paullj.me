@@ -1,6 +1,6 @@
 import type { ImageData } from '$lib/models/image';
 import imageUrlBuilder from '@sanity/image-url';
-import sanity from './useSanity';
+import { sanity } from './sanityClient';
 
 const builder = imageUrlBuilder(sanity);
 const urlFor = source => builder.image(source);
