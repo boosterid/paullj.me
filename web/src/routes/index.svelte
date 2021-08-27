@@ -22,7 +22,6 @@
 <script lang="ts">
   import Bio from '$lib/components/Banner.svelte';
   import Posts from '$lib/components/Posts.svelte';
-  import type { Post } from '$lib/models/post';
 
   export let posts: Post[];
 </script>
@@ -37,4 +36,11 @@
   <Bio description="This website is a place for me to show off some things I have been working on. I am currently a student at the University of Bath studying for a master's degree in Mechanical Engineering."></Bio>
 </div>
 
-<Posts {posts}></Posts>
+<div>
+  <Posts {posts}></Posts>
+  <!-- <div class="flex items-center justify-center w-full pt-4">
+    <a href="/posts/1" sveltekit:prefetch class="text-sm font-extrabold tracking-widest text-gray-600 uppercase hover:underline dark:text-gray-400 ">
+      More Posts
+    </a>
+  </div> -->
+</div>

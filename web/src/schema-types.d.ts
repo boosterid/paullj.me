@@ -27,6 +27,20 @@ declare namespace Sanity {
       description?: string;
 
       /**
+       * Author - `Reference`
+       */
+      author?: Sanity.Reference<Author>;
+
+      /**
+       * Image - `Image`
+       */
+      image?: {
+        asset: Sanity.Asset;
+        crop?: Sanity.ImageCrop;
+        hotspot?: Sanity.ImageHotspot;
+      };
+
+      /**
        * Published at - `Datetime`
        */
       publishedAt?: string;
@@ -71,6 +85,77 @@ declare namespace Sanity {
       biography?: Array<Sanity.Keyed<Sanity.Block>>;
     }
 
+    /**
+     * Project
+     */
+    interface Project extends Sanity.Document {
+      _type: "project";
+
+      /**
+       * Title - `String`
+       */
+      title?: string;
+
+      /**
+       * Slug - `Slug`
+       */
+      slug?: {
+        _type: "slug";
+        current: string;
+      };
+
+      /**
+       * Author - `Reference`
+       */
+      author?: Sanity.Reference<Author>;
+
+      /**
+       * Description - `String`
+       */
+      description?: string;
+
+      /**
+       * Cover Image - `Image`
+       */
+      coverImage?: {
+        asset: Sanity.Asset;
+        crop?: Sanity.ImageCrop;
+        hotspot?: Sanity.ImageHotspot;
+      };
+
+      /**
+       * Categories - `Array`
+       */
+      categories?: Array<Sanity.KeyedReference<Category>>;
+
+      /**
+       * Published at - `Datetime`
+       */
+      publishedAt?: string;
+
+      /**
+       * Body - `RegistryReference`
+       */
+      body?: BlockContent;
+    }
+
+    /**
+     * Category
+     */
+    interface Category extends Sanity.Document {
+      _type: "category";
+
+      /**
+       * Title - `String`
+       */
+      title?: string;
+
+      /**
+       * Description - `Text`
+       */
+      description?: string;
+    }
+
     type BlockContent = Array<
       Sanity.Keyed<Sanity.Block> | Sanity.Keyed<Figure> | Sanity.Keyed<Code>
     >;
@@ -103,6 +188,6 @@ declare namespace Sanity {
       featured?: boolean;
     };
 
-    type Document = Post | Author;
+    type Document = Post | Author | Project | Category;
   }
 }

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import type { Post } from "$lib/models/post";
-
 	export let posts: Post[];
 </script>
 
@@ -25,8 +23,3 @@
     </li>
   {/each}
 </ul>
-<!-- <div class="flex items-center justify-center w-full pt-4">
-  <a href="/posts/" sveltekit:prefetch class="text-sm font-extrabold tracking-widest text-gray-600 uppercase hover:underline dark:text-gray-400 ">
-    More Posts
-  </a>
-</div> -->

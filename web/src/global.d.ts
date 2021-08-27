@@ -12,3 +12,13 @@ declare namespace Sanity {
     }
   }
 }
+
+type Post = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "body" | "description"> & { slug: string };
+
+interface ImageData {
+  aspectRatio?: number,
+  placeholder?: string,
+  src: string,
+  srcset?: string,
+  alt: string,
+}
