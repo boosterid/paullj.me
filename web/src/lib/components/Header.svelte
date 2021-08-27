@@ -10,11 +10,13 @@
   $: currentPath = $page.path.substr(0, $page.path.lastIndexOf('/')) || $page.path;
 </script>
 
+<!-- FIXME: this is not working for some reason.
+  probs a better idea to make it global too and less hacky -->
 <noscript>
   <style>
-      #no-js {
-        @apply hidden;
-      }
+    #no-js {
+      @apply hidden;
+    }
   </style>
 </noscript>
 
