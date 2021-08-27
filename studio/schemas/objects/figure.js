@@ -25,5 +25,10 @@ export default {
       type: 'string',
       title: 'Caption',
     },
+    {
+      name: 'featured',
+      type: 'boolean',
+      title: 'Featured'
+    }
   ],
 };
