@@ -83,6 +83,25 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     { type: 'figure' },
-    { type: 'code' },
+    {
+      type: 'code',
+      options: {
+        withFilename: true,
+        languageAlternatives: [
+          {title: 'Text', value: 'text'},
+          {title: 'HTML', value: 'html'},
+          {title: 'XML', value: 'xml'},
+          {title: 'SVG', value: 'SVG'},
+          {title: 'CSS', value: 'css'},
+          {title: 'JavaScript', value: 'javascript'},
+          {title: 'TypeScript', value: 'typescript'},
+          {title: 'JSON', value: 'json'},
+          {title: 'Markdown', value: 'markdown'},
+          {title: 'Python', value: 'python'},
+          {title: 'C', value: 'clike'},
+          {title: 'Shell', value: 'shell'},
+        ]
+      }
+    },
   ],
 };
