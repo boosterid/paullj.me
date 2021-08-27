@@ -24,20 +24,20 @@
 
 <script lang="ts">
   import { PortableText } from 'svelte-pote';
-  import type { CustomBlockComponents } from 'svelte-pote';
+  import type { CustomBlockComponents, CustomSpanComponents } from 'svelte-pote';
   import FigureBlock from '$lib/components/FigureBlock.svelte';
+  import HighlightMark from '$lib/components/HighlightMark.svelte';
 
   const customBlockComponents: CustomBlockComponents = {
     figure: FigureBlock,
+  };
+  const customSpanComponents: CustomSpanComponents = {
+    highlight: HighlightMark,
   };
 
   export let blocks;
 </script>
 
-<div>
-  
-</div>
-
-<article class="mt-12 prose sm:mt-24 dark:prose-dark prose-green">
-  <PortableText {blocks} {customBlockComponents} />
+<article class="mt-12 prose sm:prose-lg sm:mt-24 dark:prose-dark prose-green">
+  <PortableText {blocks} {customBlockComponents} {customSpanComponents} />
 </article>
