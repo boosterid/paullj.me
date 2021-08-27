@@ -1,6 +1,9 @@
+import { BiUser } from 'react-icons/bi';
+
 export default {
   name: 'author',
   title: 'Author',
+  icon: BiUser,
   type: 'document',
   fields: [
     {
@@ -23,6 +26,7 @@ export default {
       type: 'image',
       options: {
         hotspot: true,
+        crop: true
       },
     },
     {

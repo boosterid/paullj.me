@@ -6,6 +6,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import post from './documents/post';
 import author from './documents/author';
+import category from './documents/category';
+import project from './documents/project';
 
 import blockContent from './array/blockContent';
 
@@ -21,6 +23,8 @@ export default createSchema({
   types: schemaTypes.concat([
     post,
     author,
+    project,
+    category,
     blockContent,
     figure,
   ]),

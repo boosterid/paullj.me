@@ -1,10 +1,10 @@
-import { BsLayoutTextWindowReverse } from 'react-icons/bs'
+import { AiOutlineProject } from 'react-icons/ai';
 
 export default {
-  name: 'post',
-  title: 'Post',
-  icon: BsLayoutTextWindowReverse,
+  name: 'project',
+  title: 'Project',
   type: 'document',
+  icon: AiOutlineProject,
   fields: [
     {
       name: 'title',
@@ -21,20 +21,29 @@ export default {
       },
     },
     {
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: { type: 'author' },
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'string',
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: [{ type: 'author' }],
+      name: 'coverImage',
+      title: 'Cover Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'image'
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'category' } }],
     },
     {
       name: 'publishedAt',
@@ -47,11 +56,12 @@ export default {
       type: 'blockContent',
     },
   ],
+
   preview: {
     select: {
       title: 'title',
-      media: 'image',
       author: 'author.name',
+      media: 'coverImage',
     },
     prepare(selection) {
       const { author } = selection;
