@@ -17,7 +17,7 @@ const query = groq`
   }
 `;
 
-type QueryResult = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "description" | "body">;
+export type QueryResult = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "description" | "body">;
 
 export const get = async ({ params }) => {
   const { slug } = params;
@@ -28,7 +28,7 @@ export const get = async ({ params }) => {
     return {
       body: {
         ...result,
-        publishedAt: format(parseISO(result.publishedAt), 'EEEEE do MMM y')
+        publishedAt: format(parseISO(result.publishedAt), "EEE do MMMM ''yy")
       },
       headers: { 'Content-Type': 'application/json' },
       status: 200,
