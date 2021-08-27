@@ -12,6 +12,7 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
+		"@sanity-codegen/types": "^1.0.0-alpha.11",
 		"@sanity/image-url": "^0.140.22",
 		"@sveltejs/adapter-static": "^1.0.0-next.17",
 		"@sveltejs/kit": "^1.0.0-next.158",
@@ -20,6 +21,7 @@
 		"autoprefixer": "^10.3.1",
 		"cssnano": "^5.0.6",
 		"date-fns": "^2.23.0",
+		"groq": "^2.15.0",
 		"picosanity": "^3.0.1",
 		"postcss": "^8.3.5",
 		"postcss-load-config": "^3.1.0",

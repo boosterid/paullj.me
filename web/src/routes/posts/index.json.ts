@@ -1,18 +1,22 @@
-import type { Post } from '$lib/models/post';
+import groq from 'groq';
+import { sanity } from '$lib/utils/sanityClient';
+
 import { parseISO, format } from 'date-fns';
-import sanity from '$lib/utils/useSanity';
+
+const query = groq`
+  *[_type == "post" && defined(slug.current) && publishedAt < now()]| order(publishedAt desc) [$start..$end] {
+    title,
+    "slug": slug.current,
+    publishedAt,
+}`;
+
+type QueryResult = Array<Pick<Sanity.Schema.Post, "title" | "publishedAt"> & { slug: string }>
 
 export const get = async () => {
-  const query = `
-    *[_type == "post" && defined(slug.current) && publishedAt < now()]| order(publishedAt desc) [$start..$end] {
-      title,
-      "slug": slug.current,
-      publishedAt,
-    }`;
-
-  const results: Post[] = await sanity.fetch(query, {
+  const results = await sanity.fetch<QueryResult>(query, {
     start: 0, end: 5
   });
+
   if (results) {
     const posts = results.map(({ title, slug, publishedAt }) => ({
       title,

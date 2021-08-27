@@ -1,24 +1,29 @@
-import type { Post } from '$lib/models/post';
-import sanity from '$lib/utils/useSanity';
+import groq from 'groq';
 import { parseISO, format } from 'date-fns';
+import { sanity } from '$lib/utils/sanityClient';
 
-export const get = async ({ params }) => {
-  const { slug } = params;
-  const query = `
+const query = groq`
   *[_type == "post" && slug.current == $slug][0] {
     title,
     publishedAt,
     description,
     body[] {
       ...,
-			_type == 'figure' => {
+      _type == 'figure' => {
         ...,
         image { asset-> }
       }
     }
-  }`;
+  }
+`;
 
-  const result: Post = await sanity.fetch(query, { slug });
+type QueryResult = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "description" | "body">;
+
+export const get = async ({ params }) => {
+  const { slug } = params;
+
+  const result = await sanity.fetch<QueryResult>(query, { slug });
+
   if (result) {
     return {
       body: {

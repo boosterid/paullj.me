@@ -1,8 +1,1 @@
-import type { Block } from "./blocks";
-
-export interface Post {
-  title: string;
-  slug: string;
-  publishedAt: string;
-  blocks?: Block[]
-}
+export type Post = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "body" | "description"> & { slug: string };
