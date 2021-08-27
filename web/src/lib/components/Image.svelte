@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { blur } from '$lib/utils/blur';
+  import { blur } from '$lib/transitions/blur';
   import { inview } from 'svelte-inview';
 
   export let lazyLoad = true;

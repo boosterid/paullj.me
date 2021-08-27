@@ -1,5 +1,5 @@
 import groq from 'groq';
-import { sanity } from '$lib/utils/sanityClient';
+import { sanity } from '$lib/sanity';
 
 import { parseISO, format } from 'date-fns';
 

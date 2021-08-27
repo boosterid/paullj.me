@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { storable } from '$lib/utils/storable';
+  import { storable } from '$lib/stores/storable';
 
   const preferredTheme = storable('theme');
 

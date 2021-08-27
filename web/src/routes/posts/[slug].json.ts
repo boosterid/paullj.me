@@ -1,6 +1,6 @@
 import groq from 'groq';
 import { parseISO, format } from 'date-fns';
-import { sanity } from '$lib/utils/sanityClient';
+import { sanity } from '$lib/sanity';
 
 const query = groq`
   *[_type == "post" && slug.current == $slug][0] {

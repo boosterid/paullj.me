@@ -1,34 +1,38 @@
 import type { ImageData } from '$lib/models/image';
 import imageUrlBuilder from '@sanity/image-url';
-import { sanity } from './sanityClient';
+
+import { sanity } from '$lib/sanity';
 
 const builder = imageUrlBuilder(sanity);
 const urlFor = source => builder.image(source);
 
+type SanityImage = {
+  // FIXME: Maybe GROQ codegen will help this?
+  //        https://github.com/ricokahler/sanity-codegen/issues/5
+  asset: Record<string, any>,
+  crop?: Sanity.ImageCrop,
+  hotspot?: Sanity.ImageHotspot
+};
+
 // Code taken from here: https://www.apostrof.co/blog/svelte-sanity-responsive-lazy-loaded-jank-free-images/
-export const generateImage = (image) => {
-  // aspectRatio (to prevent jank)
-  let aspectRatio;
-  if (image.crop) {
-    // priority: set aspectRatio equal to content editor’s crop settings
-    aspectRatio = getCropFactor(image.crop) * image.asset.metadata.dimensions.aspectRatio;
-  } else {
-    // else, just set aspectRatio equal to the original image’s
-    aspectRatio = image.asset.metadata.dimensions.aspectRatio;
-  }
+export const generateImage = ({ asset, crop, hotspot }: SanityImage) => {
+
+  let aspectRatio = !crop ?
+    asset.metadata.dimensions.aspectRatio :
+    getCropFactor(crop) * asset.metadata.dimensions.aspectRatio;
 
   // LQIP
-  const placeholder = image.asset.metadata.lqip;
+  const placeholder = asset.metadata.lqip;
 
   // src
-  const src = urlFor(image).url();
+  const src = urlFor(asset).url();
 
   // Change these widths as you need
   const widthsPreset = [640, 768, 1024, 1366, 1600, 1920, 2560];
 
   const srcset = widthsPreset
     // Make srcset url for each of the above widths
-    .map(w => urlFor(image).width(w).url() + ' ' + w + 'w')
+    .map(w => urlFor(asset).width(w).url() + ' ' + w + 'w')
     .join(',');
 
   // Return the object shape required by Image.svelte (minus a couple)
