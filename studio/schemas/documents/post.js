@@ -29,7 +29,7 @@ export default {
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: [{ type: 'author' }],
+      to: [{ type: 'person' }],
     },
     {
       name: 'image',

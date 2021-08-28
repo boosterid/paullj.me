@@ -5,7 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import post from './documents/post';
-import author from './documents/author';
+import person from './documents/person';
 import category from './documents/category';
 import project from './documents/project';
 
@@ -22,7 +22,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     post,
-    author,
+    person,
     project,
     category,
     blockContent,

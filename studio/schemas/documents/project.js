@@ -21,15 +21,20 @@ export default {
       },
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: { type: 'author' },
+      name: 'members',
+      title: 'Members',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'person' } }],
+      options: {
+        layout: 'tags',
+        editModal: 'popover'
+      }
     },
     {
       name: 'description',
       title: 'Description',
-      type: 'string',
+      type: 'text',
+      rows: 5,
     },
     {
       name: 'coverImage',
