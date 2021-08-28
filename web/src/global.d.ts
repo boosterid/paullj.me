@@ -15,6 +15,8 @@ declare namespace Sanity {
 
 type Post = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "body" | "description"> & { slug: string };
 
+type Project = Pick<Sanity.Schema.Project, "title" | "publishedAt" | "body" | "description"> & { slug: string };
+
 interface ImageData {
   aspectRatio?: number,
   placeholder?: string,
