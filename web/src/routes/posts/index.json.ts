@@ -8,7 +8,8 @@ const query = groq`
     title,
     "slug": slug.current,
     publishedAt,
-}`;
+  }
+`;
 
 type QueryResult = Array<Pick<Sanity.Schema.Post, "title" | "publishedAt"> & { slug: string }>
 
