@@ -39,7 +39,7 @@
       {/if}
     </pre>
 
-    <button class="self-end text-sm text-gray-400 hover:underline active:text-green-600 dark:active:text-green-400" on:click={() => navigator.clipboard.writeText(code)}>
+    <button class="self-end text-sm text-gray-400 no-js-hidden hover:underline active:text-green-600 dark:active:text-green-400" on:click={() => navigator.clipboard.writeText(code)}>
       Copy
     </button>
   </div>

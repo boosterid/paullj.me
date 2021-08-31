@@ -12,16 +12,6 @@
   $: currentPath = $page.path.substr(0, $page.path.lastIndexOf('/')) || $page.path;
 </script>
 
-<!-- FIXME: this is not working for some reason.
-  probs a better idea to make it global too and less hacky -->
-<noscript>
-  <style>
-    #no-js {
-      @apply hidden;
-    }
-  </style>
-</noscript>
-
 <div class="flex flex-row justify-between w-full py-4">
   <nav class="flex flex-row space-x-4">
     {#each Object.entries(routes) as [name, href] (name) }
@@ -30,7 +20,7 @@
       </div>
     {/each}
   </nav>
-  <div id="no-js">
+  <div class="no-js-hidden">
     <Toggle />
   </div>
 </div>

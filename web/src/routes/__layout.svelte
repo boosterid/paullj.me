@@ -21,4 +21,12 @@
   </div>
 </div>
 
-
+<!-- FIXME: this is not working for some reason.
+  probs a better idea to make it global too and less hacky -->
+<noscript>
+  <style global>
+    .no-js-hidden {
+      @apply hidden;
+    }
+  </style>
+</noscript>
