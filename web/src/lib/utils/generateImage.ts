@@ -1,4 +1,3 @@
-import type { ImageData } from '$lib/models/image';
 import imageUrlBuilder from '@sanity/image-url';
 
 import { sanity } from '$lib/sanity';
@@ -36,7 +35,7 @@ export const generateImage = ({ asset, crop, hotspot }: SanityImage) => {
     .join(',');
 
   // Return the object shape required by Image.svelte (minus a couple)
-  const test: ImageData ={
+  const test: ImageProps ={
     aspectRatio,
     placeholder,
     src,

@@ -17,7 +17,7 @@ type Post = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "body" | "descrip
 
 type Project = Pick<Sanity.Schema.Project, "title" | "publishedAt" | "body" | "description"> & { slug: string };
 
-interface ImageData {
+interface ImageProps {
   aspectRatio?: number,
   placeholder?: string,
   src: string,

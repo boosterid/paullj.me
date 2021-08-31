@@ -11,7 +11,7 @@
 	export let aspectRatio: number = null;
 	export let placeholder: string = null;
 	export let srcset: string = null;
-	export let sizes: string = 'auto' // 'auto' only works when using `lazysizes`
+	export let sizes: string = null;
 
   let inView = false;
   let isLoaded = false;
