@@ -1,3 +1,7 @@
 .DS_Store
 node_modules
 yarn-error.log
+
+studio/dist
+studio/schema-types.d.ts
+studio/schema-def.json
