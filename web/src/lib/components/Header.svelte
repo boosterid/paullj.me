@@ -5,6 +5,8 @@
   // Put routes in this object in the form -> Name: 'href'
   const routes = {
     'Home': '/',
+    'Projects': '/projects',
+    'Posts': '/posts',
   };
 
   $: currentPath = $page.path.substr(0, $page.path.lastIndexOf('/')) || $page.path;
