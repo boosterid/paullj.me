@@ -55,7 +55,7 @@
 
 <div>
   <Grid title="Recent Projects" items={projects} let:item>
-    <ProjectGridItem title={item.title} description={item.description} slug={item.slug}></ProjectGridItem>
+    <ProjectGridItem title={item.title} description={item.description} slug={item.slug} coverImage={item.coverImage}></ProjectGridItem>
   </Grid>
   <div class="w-full pt-4 text-center">
     <a href="/projects" sveltekit:prefetch class="text-sm font-extrabold tracking-widest text-gray-600 uppercase hover:underline dark:text-gray-400 ">

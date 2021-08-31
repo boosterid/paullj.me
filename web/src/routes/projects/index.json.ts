@@ -1,15 +1,20 @@
 import groq from 'groq';
 import { sanity } from '$lib/sanity';
+import { generateImage } from '$lib/utils/generateImage';
 
 const query = groq`
   *[_type == "project" && defined(slug.current) && !(_id in path('drafts.**'))]| order(publishedAt desc) [$start..$end] {
     title,
     "slug": slug.current,
     description,
+    coverImage {
+      ...,
+      asset ->
+    }
   }
 `;
 
-type QueryResult = Array<Pick<Sanity.Schema.Project, "title" | "description"> & { slug: string }>
+type QueryResult = Array<Pick<Sanity.Schema.Project, "title" | "description" | "coverImage"> & { slug: string }>
 
 export const get = async () => {
   const results = await sanity.fetch<QueryResult>(query, {
@@ -17,14 +22,13 @@ export const get = async () => {
   });
 
   if (results) {
-    const posts = results.map(({ title, slug, description }) => ({
-      title,
-      slug,
-      description
+    const projects = results.map(project => ({
+      ...project,
+      coverImage: generateImage(project.coverImage, 500, 300)
     }));
 
     return {
-      body: posts,
+      body: projects,
       headers: { 'Content-Type': 'application/json' },
       status: 200,
     }

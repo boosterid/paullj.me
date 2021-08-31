@@ -29,7 +29,7 @@ declare namespace Sanity {
       /**
        * Author - `Reference`
        */
-      author?: Sanity.Reference<Author>;
+      author?: Sanity.Reference<Person>;
 
       /**
        * Image - `Image`
@@ -41,7 +41,7 @@ declare namespace Sanity {
       };
 
       /**
-       * Published at - `Datetime`
+       * Published At - `Datetime`
        */
       publishedAt?: string;
 
@@ -52,10 +52,10 @@ declare namespace Sanity {
     }
 
     /**
-     * Author
+     * Person
      */
-    interface Author extends Sanity.Document {
-      _type: "author";
+    interface Person extends Sanity.Document {
+      _type: "person";
 
       /**
        * Name - `String`
@@ -63,26 +63,13 @@ declare namespace Sanity {
       name?: string;
 
       /**
-       * Slug - `Slug`
+       * Avatar - `Image`
        */
-      slug?: {
-        _type: "slug";
-        current: string;
-      };
-
-      /**
-       * Image - `Image`
-       */
-      image?: {
+      avatar?: {
         asset: Sanity.Asset;
         crop?: Sanity.ImageCrop;
         hotspot?: Sanity.ImageHotspot;
       };
-
-      /**
-       * Biography - `Array`
-       */
-      biography?: Array<Sanity.Keyed<Sanity.Block>>;
     }
 
     /**
@@ -105,12 +92,12 @@ declare namespace Sanity {
       };
 
       /**
-       * Author - `Reference`
+       * Members - `Array`
        */
-      author?: Sanity.Reference<Author>;
+      members?: Array<Sanity.KeyedReference<Person>>;
 
       /**
-       * Description - `String`
+       * Description - `Text`
        */
       description?: string;
 
@@ -129,7 +116,7 @@ declare namespace Sanity {
       categories?: Array<Sanity.KeyedReference<Category>>;
 
       /**
-       * Published at - `Datetime`
+       * Published At - `Datetime`
        */
       publishedAt?: string;
 
@@ -188,6 +175,6 @@ declare namespace Sanity {
       featured?: boolean;
     };
 
-    type Document = Post | Author | Project | Category;
+    type Document = Post | Person | Project | Category;
   }
 }

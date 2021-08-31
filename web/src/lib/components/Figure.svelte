@@ -1,8 +1,7 @@
 <script lang="ts">
   import Image from "./Image.svelte";
-  import type { ImageData } from "$lib/models/image";
 
-  export let image: ImageData;
+  export let image: ImageProps;
   export let caption: string = null;
   export let featured: boolean = false;
 </script>
@@ -14,9 +13,9 @@
   {/if}
 </figure>
 
-<style lang="postcss">
+<style>
   .featured {
-    @apply lg:w-[115%] lg:ml-[-7.5%];
+    @apply lg:(w-[115%] ml-[-7.5%]);
   }
   .not-featured {
     @apply max-w-screen-sm;

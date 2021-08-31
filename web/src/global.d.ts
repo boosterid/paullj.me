@@ -14,8 +14,8 @@ declare namespace Sanity {
 }
 
 type Post = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "body" | "description"> & { slug: string };
-
-type Project = Pick<Sanity.Schema.Project, "title" | "publishedAt" | "body" | "description"> & { slug: string };
+type Project = Pick<Sanity.Schema.Project, "title" | "publishedAt" | "body" | "description"> & { slug: string, coverImage: ImageProps };
+type Person = Pick<Sanity.Schema.Person, "name"> & { avatar: ImageProps };
 
 interface ImageProps {
   aspectRatio?: number,

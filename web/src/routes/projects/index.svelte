@@ -2,7 +2,7 @@
 	import type { Load } from '@sveltejs/kit';
 
   export const load: Load = async ({ fetch }) => {
-    const res = await fetch('projects.json');
+    const res = await fetch('/projects.json');
 
 		if (res) {
 			return {
@@ -28,6 +28,6 @@
 
 <div>
   <Grid title="Recent Projects" items={projects} let:item>
-    <ProjectGridItem title={item.title} description={item.description} slug={item.slug}></ProjectGridItem>
+    <ProjectGridItem title={item.title} description={item.description} slug={item.slug} coverImage={item.coverImage}></ProjectGridItem>
   </Grid>
 </div>

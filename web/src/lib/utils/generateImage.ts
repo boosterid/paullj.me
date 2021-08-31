@@ -13,37 +13,53 @@ type SanityImage = {
   hotspot?: Sanity.ImageHotspot
 };
 
-// Code taken from here: https://www.apostrof.co/blog/svelte-sanity-responsive-lazy-loaded-jank-free-images/
-export const generateImage = ({ asset, crop, hotspot }: SanityImage) => {
+type Dimmensions = {
+  width: number,
+  height?: number
+}
+
+const widthsPreset = [640, 768, 1024, 1366, 1600, 1920, 2560];
+
+export const generateImage = ({ asset, crop, hotspot }: SanityImage, width: number, height: number = null): ImageProps=> {
 
   let aspectRatio = !crop ?
     asset.metadata.dimensions.aspectRatio :
     getCropFactor(crop) * asset.metadata.dimensions.aspectRatio;
 
-  // LQIP
   const placeholder = asset.metadata.lqip;
 
-  // src
-  const src = urlFor(asset).url();
+  let assetSrc = urlFor(asset).auto("format").width(width).height(height ?? width * aspectRatio).fit("crop");
 
-  // Change these widths as you need
-  const widthsPreset = [640, 768, 1024, 1366, 1600, 1920, 2560];
-
-  const srcset = widthsPreset
-    // Make srcset url for each of the above widths
-    .map(w => urlFor(asset).width(w).url() + ' ' + w + 'w')
-    .join(',');
-
-  // Return the object shape required by Image.svelte (minus a couple)
-  const test: ImageProps ={
+  return {
     aspectRatio,
     placeholder,
-    src,
-    srcset,
+    src: assetSrc.url(),
+    srcset: assetSrc.url(),
     alt: 'test'
   };
-  // FIXME: MAKE this TS and actually useful
-  return test;
+};
+
+// Code taken from here: https://www.apostrof.co/blog/svelte-sanity-responsive-lazy-loaded-jank-free-images/
+export const generateImages = ({ asset, crop, hotspot }: SanityImage): ImageProps=> {
+
+  let aspectRatio = !crop ?
+    asset.metadata.dimensions.aspectRatio :
+    getCropFactor(crop) * asset.metadata.dimensions.aspectRatio;
+
+  const placeholder = asset.metadata.lqip;
+
+  let assetSrc = urlFor(asset).auto("format");
+  if(crop) {
+    assetSrc = assetSrc.fit("crop");
+  }
+
+  return {
+    aspectRatio,
+    placeholder,
+    src: assetSrc.url(),
+    srcset: widthsPreset.map(w => assetSrc.width(w).url() + ' ' + w + 'w').join(','),
+    alt: 'test'
+  };
 };
 
 const getCropFactor = ({ top, bottom, left, right }) => {

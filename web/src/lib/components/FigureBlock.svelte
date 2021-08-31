@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { generateImage } from '$lib/utils/generateImage';
   import type { NormalizedCustomBlock } from 'pote-parse';
 
   import Figure from './Figure.svelte';
 
   export let block: NormalizedCustomBlock;
 
-  const { featured, caption, image } = block.fields as Sanity.Schema.Figure;
+  type FigureProps = Omit<Sanity.Schema.Figure, "image"> & {image:ImageProps};
+
+  const { featured, caption, image } = block.fields as FigureProps;
 </script>
 
-<Figure image={generateImage(image)} {caption} {featured}></Figure>
+<Figure {image} {caption} {featured}></Figure>
