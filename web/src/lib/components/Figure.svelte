@@ -15,7 +15,7 @@
 
 <style>
   .featured {
-    @apply lg:(w-[115%] ml-[-7.5%]);
+    @apply lg:(w-[110%] ml-[-5%]);
   }
   .not-featured {
     @apply max-w-screen-sm;

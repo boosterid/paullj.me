@@ -56,7 +56,7 @@ export const get = async ({ params }) => {
         body: transformedBody ?? [],
         members: transformedMembers ?? [],
         coverImage: generateImages(result.coverImage),
-        publishedAt: result.publishedAt ? format(parseISO(result.publishedAt), "EEE do MMMM ''yy") : "N/A"
+        publishedAt: result.publishedAt ? format(parseISO(result.publishedAt), "MMMM ''yy") : "N/A"
       },
       headers: { 'Content-Type': 'application/json' },
       status: 200,

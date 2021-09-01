@@ -52,29 +52,29 @@
 
 <Figure image={coverImage} featured={true}/>
 
-<div class="grid sm:grid-cols-[5fr,2fr] mt-2 lg:mt-6">
+<div class="grid sm:grid-cols-[5fr,2fr] mt-2 lg:mt-6 sm:space-x-4 xl:space-x-12 mb-8 sm:mb-16 lg:mb-24">
   <div>
     <div>
       <p class="text-xs font-bold tracking-widest text-gray-700 text-opacity-50 uppercase dark:text-green-200 dark:text-opacity-70 md:text-sm">
         {publishedAt}
       </p>
-      <h1 class="font-serif text-3xl font-semibold tracking-tight text-gray-800 title sm:text-4xl lg:text-6xl dark:text-gray-200">
+      <h1 class="font-serif text-3xl font-semibold tracking-tight text-gray-800 title lg:text-5xl dark:text-gray-200">
         {title}
       </h1>
     </div>
-    <article class="prose sm:prose-lg dark:prose-dark prose-green">
+    <article class="mt-4 prose sm:mt-8 sm:prose-lg dark:prose-dark prose-green">
       <PortableText {blocks} {customBlockComponents} {customSpanComponents} />
     </article>
   </div>
   <div class="space-y-2 divide-y-2 divide-gray-300 dark:divide-gray-600">
     <div class="mt-5 lg:mt-8">
-      <p class="text-sm leading-normal text-gray-900 md:text-lg lg:text-xl font-extralight dark:text-gray-200">
+      <p class="hidden text-sm leading-normal text-gray-900 sm:block md:text-lg lg:text-xl font-extralight dark:text-gray-200">
         {description}
       </p>
     </div>
     <div>
       {#if members}
-        <h3 class="my-2 text-xs font-bold tracking-widest text-gray-700 text-opacity-50 uppercase dark:text-green-200 dark:text-opacity-70 md:text-sm">
+        <h3 class="my-2 text-xs font-bold tracking-widest text-gray-700 text-opacity-50 uppercase dark:text-gray-200 dark:text-opacity-70 md:text-sm">
           Members
         </h3>
         <div class="space-y-2">
@@ -85,7 +85,7 @@
       {/if}
     </div>
     <div>
-      <h3 class="my-2 text-xs font-bold tracking-widest text-gray-700 text-opacity-50 uppercase dark:text-green-200 dark:text-opacity-70 md:text-sm">
+      <h3 class="my-2 text-xs font-bold tracking-widest text-gray-700 text-opacity-50 uppercase dark:text-gray-200 dark:text-opacity-70 md:text-sm">
         Categories
       </h3>
     </div>

@@ -1,6 +1,5 @@
 body {
-  @apply h-full;
-  @apply bg-transparent;
+  @apply min-h-full;
 }
 
 html {
