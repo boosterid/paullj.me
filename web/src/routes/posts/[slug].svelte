@@ -1,8 +1,10 @@
 <script lang="ts" context="module">
+  import SEO from "svelte-seo";
+
   import type { Load } from '@sveltejs/kit';
   import type { QueryResult } from './[slug].json';
-  import { getReadingTime } from '$lib/utils/getReadingTime';
-  import { blocksToText } from '$lib/utils/blocksToText';
+  // import { getReadingTime } from '$lib/utils/getReadingTime';
+  // import { blocksToText } from '$lib/utils/blocksToText';
 
   export const load: Load = async ({ page, fetch }) => {
     const { slug } = page.params;
@@ -17,7 +19,7 @@
           description,
           publishedAt,
           blocks: body,
-          readingTime: getReadingTime(blocksToText(body))
+          // readingTime: getReadingTime(blocksToText(body))
 				}
 			};
 		}
@@ -48,9 +50,11 @@
   export let title: string;
   export let description: string;
   export let publishedAt: string;
-  export let readingTime: string;
+  // export let readingTime: string;
   export let blocks: Sanity.Schema.BlockContent;
 </script>
+
+<SEO {title} {description}></SEO>
 
 <div class="mt-6 md:mt-0">
   <div class="relative flex flex-col space-y-6 md:space-y-0 md:flex-row md:items-center">

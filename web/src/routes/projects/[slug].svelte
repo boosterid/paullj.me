@@ -25,6 +25,7 @@
 </script>
 
 <script lang="ts">
+  import SEO from "svelte-seo";
   import { PortableText } from 'svelte-pote';
   import type { CustomBlockComponents, CustomSpanComponents } from 'svelte-pote';
 
@@ -49,6 +50,8 @@
   export let blocks: Sanity.Schema.BlockContent;
   export let members: Array<Person> = null;
 </script>
+
+<SEO {title} {description}></SEO>
 
 <Figure image={coverImage} featured={true}/>
 

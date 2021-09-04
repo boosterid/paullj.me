@@ -2,12 +2,17 @@
 	import type { Load } from '@sveltejs/kit';
 
   export const load: Load = async ({ fetch }) => {
+    // FIXME: Make one groq query that fetches all of this information
+    const res = await fetch('/index.json');
     const postRes = await fetch('/posts.json');
     const projectRes = await fetch('/projects.json');
 
-		if (postRes.ok && projectRes) {
+		if (res.ok && postRes.ok && projectRes) {
+      const settings = await res.json();
+
 			return {
 				props: {
+          ...settings,
 					posts: await postRes.json(),
 					projects: await projectRes.json()
 				}
@@ -22,15 +27,22 @@
 </script>
 
 <script lang="ts">
+  import SEO from "svelte-seo";
   import Bio from '$lib/components/Banner.svelte';
   import List from '$lib/components/List.svelte';
   import Grid from '$lib/components/Grid.svelte';
   import PostListItem from '$lib/components/PostListItem.svelte';
   import ProjectGridItem from '$lib/components/Project.svelte';
 
+  export let title: string;
+  export let description: string;
+  export let avatar: ImageProps;
+
   export let posts: Post[];
   export let projects: Project[];
 </script>
+
+<SEO {title} {description}></SEO>
 
 <div class="mb-12 sm:mb-24">
 	<h1 class="mb-12 font-serif text-4xl font-semibold leading-none sm:text-5xl">
@@ -39,7 +51,7 @@
 		Lavender-Jones
 	</h1>
 
-  <Bio description="This website is a place for me to show off some things I have been working on. I am currently a student at the University of Bath studying for a master's degree in Mechanical Engineering."></Bio>
+  <Bio {description} {avatar}/>
 </div>
 
 <div class="mb-12 sm:mb-24">
