@@ -761,6 +761,11 @@ sade@^1.7.4:
   dependencies:
     mri "^1.1.0"
 
+schema-dts@^0.8.2:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/schema-dts/-/schema-dts-0.8.3.tgz#6c03ca47200e80e9a871d6de626a7cf04fe009b7"
+  integrity sha512-GSLeVkUgEe8DzS8/FGWou1wlC8tQ1KXA5amCqCIH/psUzF74fWswtT0QFlSoJLT08CYyixnc3S/lkAm+RExoLQ==
+
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"
@@ -872,6 +877,13 @@ svelte-preprocess@^4.0.0, svelte-preprocess@^4.7.4:
     "@types/sass" "^1.16.0"
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
+
+svelte-seo@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/svelte-seo/-/svelte-seo-1.2.1.tgz#c971428049f06180ba095366321e6e06a892c09c"
+  integrity sha512-e1N1MSgct4y0XYUzWEgBy5zdlmfGAC8qn4RuL6n7tjSrl3qr7w0bY8Nv40Vbnv+UaejL7VlX9QQGjzFnSPZ2DQ==
+  dependencies:
+    schema-dts "^0.8.2"
 
 svelte@^3.34.0:
   version "3.42.4"

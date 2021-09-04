@@ -127,6 +127,28 @@ declare namespace Sanity {
     }
 
     /**
+     * Site Settings
+     */
+    interface SiteSettings extends Sanity.Document {
+      _type: "siteSettings";
+
+      /**
+       * Title - `String`
+       */
+      title?: string;
+
+      /**
+       * Description - `Text`
+       */
+      description?: string;
+
+      /**
+       * Author - `Reference`
+       */
+      author?: Sanity.Reference<Person>;
+    }
+
+    /**
      * Category
      */
     interface Category extends Sanity.Document {
@@ -175,6 +197,6 @@ declare namespace Sanity {
       featured?: boolean;
     };
 
-    type Document = Post | Person | Project | Category;
+    type Document = Post | Person | Project | SiteSettings | Category;
   }
 }
