@@ -55,7 +55,7 @@
 
 <Figure image={coverImage} featured={true}/>
 
-<div class="grid sm:grid-cols-[5fr,2fr] mt-2 lg:mt-6 sm:space-x-4 xl:space-x-12 mb-8 sm:mb-16 lg:mb-24">
+<div class="grid sm:grid-cols-[5fr,2fr] mt-2 lg:mt-6 sm:space-x-4 mb-8 sm:mb-16 lg:mb-24">
   <div>
     <div>
       <p class="text-xs font-bold tracking-widest text-gray-700 text-opacity-50 uppercase dark:text-green-200 dark:text-opacity-70 md:text-sm">
@@ -87,10 +87,10 @@
         </div>
       {/if}
     </div>
-    <div>
+    <!-- <div>
       <h3 class="my-2 text-xs font-bold tracking-widest text-gray-700 text-opacity-50 uppercase dark:text-gray-200 dark:text-opacity-70 md:text-sm">
         Categories
       </h3>
-    </div>
+    </div> -->
   </div>
 </div>
