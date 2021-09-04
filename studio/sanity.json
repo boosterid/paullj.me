@@ -40,6 +40,10 @@
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "./parts/dashboardConfig.js"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./parts/deskStructure.js"
     }
   ]
 }

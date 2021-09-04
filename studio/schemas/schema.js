@@ -8,6 +8,7 @@ import post from './documents/post';
 import person from './documents/person';
 import category from './documents/category';
 import project from './documents/project';
+import settings from './documents/settings'
 
 import blockContent from './array/blockContent';
 
@@ -24,6 +25,7 @@ export default createSchema({
     post,
     person,
     project,
+    settings,
     category,
     blockContent,
     figure,
