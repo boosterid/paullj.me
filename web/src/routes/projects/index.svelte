@@ -20,14 +20,19 @@
 </script>
 
 <script lang="ts">
-  import Grid from '$lib/components/Grid.svelte';
-  import ProjectGridItem from '$lib/components/Project.svelte';
+  import List from '$lib/components/Grid.svelte';
+  import ProjectListItem from '$lib/components/ProjectListItem.svelte';
 
   export let projects: Project[];
 </script>
 
 <div>
-  <Grid title="Recent Projects" items={projects} let:item>
-    <ProjectGridItem title={item.title} description={item.description} slug={item.slug} coverImage={item.coverImage}></ProjectGridItem>
-  </Grid>
+  <List items={projects} let:item>
+    <h2 slot="title" class="font-serif text-xl">
+      <a href="/projects" sveltekit:prefetch class="hover:underline">
+        Projects
+      </a>
+    </h2>
+    <ProjectListItem slot="item" title={item.title} description={item.description} categories={item.categories} slug={item.slug}></ProjectListItem>
+  </List>
 </div>

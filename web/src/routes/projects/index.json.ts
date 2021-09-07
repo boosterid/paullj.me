@@ -3,32 +3,23 @@ import { sanity } from '$lib/sanity';
 import { generateImage } from '$lib/utils/generateImage';
 
 const query = groq`
-  *[_type == "project" && defined(slug.current) && !(_id in path('drafts.**'))]| order(publishedAt desc) [$start..$end] {
+  *[_type == "project" && defined(slug.current) && !(_id in path('drafts.**'))]| order(publishedAt desc) {
     title,
     "slug": slug.current,
     description,
-    coverImage {
-      ...,
-      asset ->
-    }
+    "categories": categories[]->title
   }
 `;
 
-type QueryResult = Array<Pick<Sanity.Schema.Project, "title" | "description" | "coverImage"> & { slug: string }>
+type QueryResult = Array<Project>
 
 export const get = async () => {
-  const results = await sanity.fetch<QueryResult>(query, {
-    start: 0, end: 3
-  });
+  const results = await sanity.fetch<QueryResult>(query);
 
   if (results) {
-    const projects = results.map(project => ({
-      ...project,
-      coverImage: generateImage(project.coverImage, 500, 300)
-    }));
 
     return {
-      body: projects,
+      body: results,
       headers: { 'Content-Type': 'application/json' },
       status: 200,
     }

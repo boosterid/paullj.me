@@ -27,10 +27,11 @@
   import At from '@svicons/remix-line/at.svelte';
   import GitHub from '@svicons/remix-fill/github.svelte';
   import LinkedIn from '@svicons/remix-fill/linkedin-box.svelte';
+  import RSS from '@svicons/remix-fill/rss.svelte';
 
   import List from '$lib/components/List.svelte';
   import PostListItem from '$lib/components/PostListItem.svelte';
-  import ProjectGridItem from '$lib/components/Project.svelte';
+  import ProjectListItem from '$lib/components/ProjectListItem.svelte';
 
   export let title: string;
   export let description: string;
@@ -75,15 +76,18 @@
         Projects
       </a>
     </h2>
-    <ProjectGridItem slot="item" title={item.title} description={item.description} categories={item.categories} slug={item.slug}></ProjectGridItem>
+    <ProjectListItem slot="item" title={item.title} description={item.description} categories={item.categories} slug={item.slug}></ProjectListItem>
   </List>
 </div>
 
 <div class="mb-12 sm:mb-24">
   <List items={posts} let:item>
-    <h2 slot="title" id="posts" class="font-serif text-xl">
+    <h2 slot="title" id="posts" class="font-serif text-xl flex items-center space-x-2">
       <a href="/posts" sveltekit:prefetch class="hover:underline">
-        Writings
+        Blog
+      </a>
+      <a href="/rss.xml" class="hover:text-orange-500">
+        <RSS height="1rem"></RSS>
       </a>
     </h2>
     <PostListItem slot="item" title={item.title} slug={item.slug} date={item.publishedAt}></PostListItem>

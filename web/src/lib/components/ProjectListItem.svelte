@@ -7,8 +7,7 @@
   export let categories : string[];
 </script>
 
-
-<li class="inline-grid items-center grid-flow-col w-full grid-cols-[min-content,min-content,max-content] grid-rows-2 gap-x-2">
+<li class="inline-grid items-center grid-flow-col grid-cols-[min-content, max-content, min-content] grid-rows-2 gap-x-2">
   <Arrow height="1rem"></Arrow>
   <div />
   <div>

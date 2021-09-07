@@ -20,12 +20,23 @@
 </script>
 
 <script lang="ts">
+  import RSS from '@svicons/remix-fill/rss.svelte';
   import PostListItem from '$lib/components/PostListItem.svelte';
   import List from '$lib/components/List.svelte';
 
   export let posts: Post[];
 </script>
 
-<List id="posts" title="Recent Posts" items={posts} let:item>
-  <PostListItem title={item.title} slug={item.slug} date={item.publishedAt}></PostListItem>
-</List>
+<div class="mb-12 sm:mb-24">
+  <List items={posts} let:item>
+    <h2 slot="title" id="posts" class="font-serif text-xl flex items-center space-x-2">
+      <a href="/posts" sveltekit:prefetch class="hover:underline">
+        Blog
+      </a>
+      <a href="/rss.xml" class="hover:text-orange-500">
+        <RSS height="1rem"></RSS>
+      </a>
+    </h2>
+    <PostListItem slot="item" title={item.title} slug={item.slug} date={item.publishedAt}></PostListItem>
+  </List>
+</div>
