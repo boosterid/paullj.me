@@ -1,6 +1,9 @@
 body {
   @apply min-h-full;
   @apply bg-gray-100;
+
+  @apply transition;
+  @apply duration-200;
 }
 
 html {
@@ -9,6 +12,7 @@ html {
   @apply subpixel-antialiased;
 
   @apply transition;
+  @apply duration-200;
 
   @apply text-gray-800;
   @apply bg-gray-900;
