@@ -51,7 +51,7 @@
   export let members: Array<Person> = null;
 </script>
 
-<SEO {title} {description}></SEO>
+<SEO title="{title} | Paul Lavender-Jones" {description}></SEO>
 
 <Figure image={coverImage} featured={true}/>
 

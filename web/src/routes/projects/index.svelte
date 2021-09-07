@@ -20,11 +20,14 @@
 </script>
 
 <script lang="ts">
-  import List from '$lib/components/Grid.svelte';
+  import SEO from "svelte-seo";
+  import List from '$lib/components/List.svelte';
   import ProjectListItem from '$lib/components/ProjectListItem.svelte';
 
   export let projects: Project[];
 </script>
+
+<SEO title="Projects | Paul Lavender-Jones" description="Some projects I have worked on."></SEO>
 
 <div>
   <List items={projects} let:item>

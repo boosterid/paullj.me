@@ -1,6 +1,4 @@
 <script lang="ts" context="module">
-  import SEO from "svelte-seo";
-
   import type { Load } from '@sveltejs/kit';
   import type { QueryResult } from './[slug].json';
   // import { getReadingTime } from '$lib/utils/getReadingTime';
@@ -32,6 +30,7 @@
 </script>
 
 <script lang="ts">
+  import SEO from "svelte-seo";
   import { PortableText } from 'svelte-pote';
   import type { CustomBlockComponents, CustomSpanComponents } from 'svelte-pote';
 
@@ -54,7 +53,7 @@
   export let blocks: Sanity.Schema.BlockContent;
 </script>
 
-<SEO {title} {description}></SEO>
+<SEO title="{title} | Paul Lavender-Jones" {description}></SEO>
 
 <div class="mt-6 md:mt-0">
   <div class="relative flex flex-col space-y-6 md:space-y-0 md:flex-row md:items-center">

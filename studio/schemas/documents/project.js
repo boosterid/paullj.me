@@ -35,6 +35,7 @@ export default {
       title: 'Description',
       type: 'text',
       rows: 5,
+      validation: Rule => Rule.max(200)
     },
     {
       name: 'coverImage',
