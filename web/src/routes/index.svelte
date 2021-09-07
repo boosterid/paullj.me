@@ -2,41 +2,42 @@
 	import type { Load } from '@sveltejs/kit';
 
   export const load: Load = async ({ fetch }) => {
-    // FIXME: Make one groq query that fetches all of this information
     const res = await fetch('/index.json');
-    const postRes = await fetch('/posts.json');
-    const projectRes = await fetch('/projects.json');
 
-		if (res.ok && postRes.ok && projectRes) {
-      const settings = await res.json();
+		if (res.ok) {
+      const data = await res.json();
 
 			return {
 				props: {
-          ...settings,
-					posts: await postRes.json(),
-					projects: await projectRes.json()
+          ...data,
 				}
 			};
 		}
 
 		return {
-			status: postRes.status,
-			error: new Error(`Could not load '/posts.json'`)
+			status: res.status,
+			error: new Error(`Could not load '/index.json'`)
 		};
   }
 </script>
 
 <script lang="ts">
   import SEO from "svelte-seo";
-  import Bio from '$lib/components/Banner.svelte';
+
+  import At from '@svicons/remix-line/at.svelte';
+  import GitHub from '@svicons/remix-fill/github.svelte';
+  import LinkedIn from '@svicons/remix-fill/linkedin-box.svelte';
+
   import List from '$lib/components/List.svelte';
-  import Grid from '$lib/components/Grid.svelte';
   import PostListItem from '$lib/components/PostListItem.svelte';
   import ProjectGridItem from '$lib/components/Project.svelte';
 
   export let title: string;
   export let description: string;
-  export let avatar: ImageProps;
+  export let email: string;
+  export let githubUrl: string;
+  export let linkedInUrl: string;
+  export let cvFileUrl: string;
 
   export let posts: Post[];
   export let projects: Project[];
@@ -44,34 +45,47 @@
 
 <SEO {title} {description}></SEO>
 
-<div class="mb-12 sm:mb-24">
-	<h1 class="mb-12 font-serif text-4xl font-semibold leading-none sm:text-5xl">
+<div class="mb-12 sm:mt-18 sm:mb-24">
+	<h1 class="font-serif text-4xl font-semibold leading-none sm:text-5xl">
 		Paul
 		<br/>
 		Lavender-Jones
 	</h1>
 
-  <Bio {description} {avatar}/>
+  <div class="flex items-center mt-4 space-x-4">
+    <a href="mailto:{email}?subject=Hi!" class="transition hover:text-green-600">
+      <At height="2.5rem"/>
+    </a>
+    <a href={linkedInUrl} class="transition hover:text-green-600">
+      <LinkedIn height="2.5rem"/>
+    </a>
+    <a href={githubUrl} class="transition hover:text-green-600">
+      <GitHub height="2.5rem"/>
+    </a>
+    <a href="{cvFileUrl}?dl={title.replace(' ', '_')}_CV_2021" class="font-semibold text-center transition hover:text-green-600">
+      Curriculum Vitae
+    </a>
+  </div>
 </div>
 
 <div class="mb-12 sm:mb-24">
-  <List id="posts" title="Recent Posts" items={posts} let:item>
-    <PostListItem title={item.title} slug={item.slug} date={item.publishedAt}></PostListItem>
+  <List items={projects} let:item>
+    <h2 slot="title" id="projects" class="font-serif text-xl">
+      <a href="/projects" sveltekit:prefetch class="hover:underline">
+        Projects
+      </a>
+    </h2>
+    <ProjectGridItem slot="item" title={item.title} description={item.description} categories={item.categories} slug={item.slug}></ProjectGridItem>
   </List>
-  <div class="w-full pt-4 text-center">
-    <a href="/posts" sveltekit:prefetch class="text-sm font-extrabold tracking-widest text-gray-600 uppercase hover:underline dark:text-gray-400 ">
-      More Posts
-    </a>
-  </div>
 </div>
 
-<div>
-  <Grid title="Recent Projects" items={projects} let:item>
-    <ProjectGridItem title={item.title} description={item.description} slug={item.slug} coverImage={item.coverImage}></ProjectGridItem>
-  </Grid>
-  <div class="w-full pt-4 text-center">
-    <a href="/projects" sveltekit:prefetch class="text-sm font-extrabold tracking-widest text-gray-600 uppercase hover:underline dark:text-gray-400 ">
-      More Projects
-    </a>
-  </div>
+<div class="mb-12 sm:mb-24">
+  <List items={posts} let:item>
+    <h2 slot="title" id="posts" class="font-serif text-xl">
+      <a href="/posts" sveltekit:prefetch class="hover:underline">
+        Writings
+      </a>
+    </h2>
+    <PostListItem slot="item" title={item.title} slug={item.slug} date={item.publishedAt}></PostListItem>
+  </List>
 </div>

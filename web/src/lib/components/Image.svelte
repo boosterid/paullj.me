@@ -23,7 +23,6 @@
     if ('loading' in HTMLImageElement.prototype) {
       nativeLoading = true
     }
-    console.log(isLoaded);
   });
 
   const inviewOptions = {

@@ -1,29 +1,27 @@
 <script lang="ts">
-  import Image from "./Image.svelte";
+  import Arrow from '@svicons/remix-line/arrow-right-s.svelte';
 
   export let title: string;
   export let description: string;
   export let slug : string;
-  export let coverImage: ImageProps;
-
+  export let categories : string[];
 </script>
 
-<div class="w-full">
-  <a href="/projects/{slug}" sveltekit:prefetch class="grayscale-[25%] hover:grayscale-0 transition-all">
-    <div class="w-full h-32 overflow-hidden rounded-sm">
-      {#if coverImage}
-        <Image {...coverImage} lazyLoad={false}></Image>
-      {:else}
-        <div class="w-full h-full bg-gradient-to-br from-green-600 to-green-900"></div>
-      {/if}
-    </div>
-  </a>
-  <div class="flex flex-row items-center pt-1 space-x-2 text-base sm:text-lg">
-    <a href="/projects/{slug}" sveltekit:prefetch class="hover:underline">
+
+<li class="inline-grid items-center grid-flow-col w-full grid-cols-[min-content,min-content,max-content] grid-rows-2 gap-x-2">
+  <Arrow height="1rem"></Arrow>
+  <div />
+  <div>
+    <a href="/projects/{slug}" sveltekit:prefetch class="text-base transition-shadow sm:text-lg shadow-thin hover:shadow-thick ring-green-500 ring-opacity-30 dark:ring-opacity-70">
       {title}
     </a>
   </div>
-  <div>
-    <p class="text-sm font-light text-gray-600 dark:text-gray-400">{description}</p>
+  <div class="space-x-2 break-words">
+    {#each categories as name}
+      <span class="py-0.5 px-1 text-xs font-semibold text-gray-100 bg-gray-500 rounded">{name}</span>
+    {/each}
   </div>
-</div>
+  <div class="row-span-2 self-start mt-0.5">
+    <p class="font-light">{description}</p>
+  </div>
+</li>

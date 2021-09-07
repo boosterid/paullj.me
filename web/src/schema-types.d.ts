@@ -143,9 +143,26 @@ declare namespace Sanity {
       description?: string;
 
       /**
-       * Author - `Reference`
+       * Email - `String`
        */
-      author?: Sanity.Reference<Person>;
+      email?: string;
+
+      /**
+       * GitHub URL - `Url`
+       */
+      githubUrl?: string;
+
+      /**
+       * LinkedIn URL - `Url`
+       */
+      linkedInUrl?: string;
+
+      /**
+       * Curriculum Vitae File - `File`
+       */
+      cvFile?: {
+        asset: Sanity.Asset;
+      };
     }
 
     /**

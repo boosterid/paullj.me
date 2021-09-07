@@ -10,7 +10,7 @@
   import 'prismjs/components/prism-python.js';
   import 'prismjs/components/prism-json.js';
 
-  import '$lib/theme.css';
+  import '$lib/prism.css';
   // TODO: Enable these as we need them
   // import 'prismjs/components/prism-bash';
   // import 'prismjs/components/prism-rust';
