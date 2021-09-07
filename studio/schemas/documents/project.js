@@ -49,6 +49,10 @@ export default {
       title: 'Categories',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }],
+      options: {
+        layout: 'tags',
+        editModal: 'popover'
+      }
     },
     {
       name: 'publishedAt',

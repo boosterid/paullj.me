@@ -10,6 +10,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: Rule => Rule.max(25)
     },
     {
       name: 'description',
