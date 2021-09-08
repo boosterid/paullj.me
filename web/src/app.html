@@ -4,22 +4,20 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          console.log("dark")
+          document.documentElement.classList.add('dark')
+        } else {
+          console.log("light")
+          document.documentElement.classList.remove('dark')
+        }
+      })();
+    </script>
 		%svelte.head%
 	</head>
 	<body>
-    <script>
-      (function () {
-        const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-        let prefersDarkMode;
-        try {
-          prefersDarkMode = JSON.parse(localStorage.getItem("theme"));
-        } catch (error) { }
-
-        if(prefersDarkMode ? prefersDarkMode === 'dark' : darkModeQuery.matches)
-          document.documentElement.classList.add('dark')
-      })();
-    </script>
 		<div id="svelte">%svelte.body%</div>
 	</body>
   <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js"id="ZwSg9rf6GA" async defer></script>
