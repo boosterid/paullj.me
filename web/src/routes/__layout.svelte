@@ -27,11 +27,11 @@
 {/if}
 
 <div class="flex flex-col max-w-screen-md min-h-screen px-4 py-2 mx-auto">
-  <div class="flex-shrink-0 mt-6">
+  <div class="flex-shrink-0 mt-2">
     <Header></Header>
   </div>
 
-  <main class="flex-grow pt-4 sm:pt-8">
+  <main class="flex-grow pt-4 sm:pt-6">
     <slot></slot>
   </main>
 

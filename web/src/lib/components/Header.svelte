@@ -6,7 +6,7 @@
   $: currentPath = $page.path.substr(0, $page.path.lastIndexOf('/')) || $page.path;
 </script>
 
-<div class="flex flex-row justify-between w-full py-4 items-center">
+<div class="flex flex-row justify-between w-full py-1 sm:py-4 items-center">
   <nav class="flex flex-row space-x-4">
     {#if currentPath !== '/'}
      <div class="text-lg sm:text-base">

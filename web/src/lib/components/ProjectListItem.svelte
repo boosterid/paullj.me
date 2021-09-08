@@ -7,11 +7,11 @@
   export let categories : string[];
 </script>
 
-<li class="flex items-start space-x-2">
+<li class="flex items-start space-x-2 mb-4">
   <div class="py-1.5">
     <Arrow height="1rem"></Arrow>
   </div>
-  <div class="flex flex-col sm:flex-row sm:space-x-2">
+  <div class="flex flex-col sm:flex-row sm:space-x-2 md:space-x-6">
     <div class="flex-shrink-0">
       <a href="/projects/{slug}" sveltekit:prefetch class="text-base transition-shadow sm:text-lg shadow-thin hover:shadow-thick ring-green-500 ring-opacity-30 dark:ring-opacity-70">
         {title}

@@ -48,7 +48,7 @@
 
 <SEO {title} {description}></SEO>
 
-<div class="mb-12 sm:mt-18 sm:mb-24">
+<div class="sm:mt-18">
 	<h1 class="font-serif text-4xl font-semibold leading-none sm:text-5xl">
 		Paul
 		<br/>
@@ -71,7 +71,7 @@
   </div>
 </div>
 
-<div class="mb-12 sm:mb-24">
+<div class="mt-12 sm:mt-18">
   <List items={projects} let:item>
     <h2 slot="title" id="projects" class="font-serif text-xl">
       <a href="/projects" sveltekit:prefetch class="hover:underline">
@@ -82,7 +82,7 @@
   </List>
 </div>
 
-<div class="mb-12 sm:mb-24">
+<div class="mt-12 sm:mt-18">
   <List items={posts} let:item>
     <h2 slot="title" id="posts" class="font-serif text-xl flex items-center space-x-2">
       <a href="/posts" sveltekit:prefetch class="hover:underline">
