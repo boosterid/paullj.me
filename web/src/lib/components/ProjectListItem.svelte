@@ -24,8 +24,10 @@
     </div>
     <div class="mt-0.5">
       <p class="font-light">
-        {description}
-        <a href="/projects/{slug}" sveltekit:prefetch class="ml-2 inline-block text-xs text-green-700 dark:text-green-200 hover:underline uppercase font-bold tracking-wide">
+        <span class="inline mr-2">
+          {description}
+        </span>
+        <a href="/projects/{slug}" sveltekit:prefetch class="inline-block text-xs text-green-700 dark:text-gray-200 hover:underline uppercase font-bold tracking-wide">
           Read More...
         </a>
       </p>
