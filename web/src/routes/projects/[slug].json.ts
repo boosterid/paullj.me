@@ -9,6 +9,7 @@ const query = groq`
     publishedAt,
     description,
     coverImage { ..., asset -> },
+    "categories": categories[]->title,
     body[] {
       ...,
       _type == 'figure' => {
@@ -26,7 +27,7 @@ const query = groq`
   }
 `;
 
-export type QueryResult = Pick<Sanity.Schema.Project, "title" | "description" | "body" | "publishedAt" | "coverImage"> & { members: Array<Sanity.Schema.Person>}
+export type QueryResult = Project & { members: Array<Sanity.Schema.Person>}
 
 export const get = async ({ params }) => {
   const { slug } = params;
@@ -55,7 +56,7 @@ export const get = async ({ params }) => {
         ...result,
         body: transformedBody ?? [],
         members: transformedMembers ?? [],
-        coverImage: generateImages(result.coverImage),
+        coverImage: result.coverImage ? generateImages(result.coverImage) : null,
         publishedAt: result.publishedAt ? format(parseISO(result.publishedAt), "MMMM ''yy") : "N/A"
       },
       headers: { 'Content-Type': 'application/json' },

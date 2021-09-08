@@ -29,7 +29,7 @@ declare namespace Sanity {
 }
 
 type Post = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "body" | "description"> & { slug: string };
-type Project = Pick<Sanity.Schema.Project, "title" | "publishedAt" | "body" | "description"> & { slug: string, categories: Array<string>};
+type Project = Pick<Sanity.Schema.Project, "title" | "publishedAt" | "body" | "description" | "coverImage"> & { slug: string, categories: Array<string>};
 type Person = Pick<Sanity.Schema.Person, "name"> & { avatar: ImageProps };
 
 interface ImageProps {

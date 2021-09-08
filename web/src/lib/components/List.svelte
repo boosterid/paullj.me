@@ -7,7 +7,7 @@
 
 <slot name="title" />
 
-<ul>
+<ul class="space-y-4">
   {#each items as item}
     <slot name="item" {item} />
   {:else}

@@ -1,6 +1,5 @@
 import groq from 'groq';
 import { sanity } from '$lib/sanity';
-import { generateImage } from '$lib/utils/generateImage';
 
 const query = groq`
   *[_type == "project" && defined(slug.current) && !(_id in path('drafts.**'))]| order(publishedAt desc) {

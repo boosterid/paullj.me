@@ -12,11 +12,11 @@
     <Arrow height="1rem"></Arrow>
   </div>
   <div class="flex flex-col sm:flex-row sm:space-x-2">
-    <div class="flex-shrink-1">
+    <div class="flex-shrink-0">
       <a href="/projects/{slug}" sveltekit:prefetch class="text-base transition-shadow sm:text-lg shadow-thin hover:shadow-thick ring-green-500 ring-opacity-30 dark:ring-opacity-70">
         {title}
       </a>
-      <div class="space-x-2 break-words">
+      <div class="space-x-2">
         {#each categories as name}
           <span class="py-0.5 px-1 text-xs font-semibold text-gray-100 bg-gray-500 rounded">{name}</span>
         {/each}
