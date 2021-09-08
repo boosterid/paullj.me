@@ -18,7 +18,7 @@
       </a>
       <div class="space-x-2">
         {#each categories as name}
-          <span class="py-0.5 px-1 text-xs font-semibold text-gray-100 bg-gray-500 rounded">{name}</span>
+          <span class="py-0.5 px-1 text-xs font-semibold text-gray-100 bg-gray-500 dark:(bg-gray-700 text-gray-300) rounded">{name}</span>
         {/each}
       </div>
     </div>
