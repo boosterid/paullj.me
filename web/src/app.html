@@ -7,6 +7,19 @@
 		%svelte.head%
 	</head>
 	<body>
+    <script>
+      (function () {
+        const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+        let prefersDarkMode;
+        try {
+          prefersDarkMode = JSON.parse(localStorage.getItem("theme"));
+        } catch (error) { }
+
+        if(prefersDarkMode ? prefersDarkMode === 'dark' : darkModeQuery.matches)
+          document.documentElement.classList.add('dark')
+      })();
+    </script>
 		<div id="svelte">%svelte.body%</div>
 	</body>
   <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js"id="ZwSg9rf6GA" async defer></script>

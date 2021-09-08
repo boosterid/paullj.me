@@ -199,11 +199,6 @@ declare namespace Sanity {
       };
 
       /**
-       * Alternative Text - `String`
-       */
-      alt?: string;
-
-      /**
        * Caption - `String`
        */
       caption?: string;
