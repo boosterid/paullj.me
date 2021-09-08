@@ -8,6 +8,7 @@ const query = groq`
     title,
     publishedAt,
     description,
+    "slug": slug.current,
     body[] {
       ...,
       _type == 'figure' => {
@@ -18,12 +19,11 @@ const query = groq`
   }
 `;
 
-export type QueryResult = Pick<Sanity.Schema.Post, "title" | "publishedAt" | "description" | "body">;
 
 export const get = async ({ params }) => {
   const { slug } = params;
 
-  const result = await sanity.fetch<QueryResult>(query, { slug });
+  const result = await sanity.fetch<Post>(query, { slug });
 
   const transformedBody = result.body.map((x) => {
     if(x._type === 'figure') {

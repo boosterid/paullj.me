@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { NormalizedCustomBlock } from 'pote-parse';
 
-  import Figure from './Figure.svelte';
+  import Figure from '../Figure.svelte';
 
   export let block: NormalizedCustomBlock;
 

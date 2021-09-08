@@ -29,9 +29,9 @@
   import { PortableText } from 'svelte-pote';
   import type { CustomBlockComponents, CustomSpanComponents } from 'svelte-pote';
 
-  import FigureBlock from '$lib/components/FigureBlock.svelte';
-  import CodeBlock from '$lib/components/CodeBlock.svelte';
-  import HighlightMark from '$lib/components/HighlightMark.svelte';
+  import FigureBlock from '$lib/components/content/FigureBlock.svelte';
+  import CodeBlock from '$lib/components/content/CodeBlock.svelte';
+  import HighlightMark from '$lib/components/content/HighlightMark.svelte';
   import Figure from '$lib/components/Figure.svelte';
   import PersonCard from '$lib/components/Person.svelte';
 
@@ -57,6 +57,7 @@
 {#if coverImage}
   <Figure image={coverImage} featured={true}/>
 {/if}
+
 <div class="grid sm:grid-cols-[5fr,2fr] mt-2 lg:mt-6 sm:space-x-4 mb-8 sm:mb-16 lg:mb-24">
   <div>
     <div>
@@ -67,7 +68,7 @@
         {title}
       </h1>
     </div>
-    <article class="mt-4 prose sm:mt-8 sm:prose-lg dark:prose-dark prose-green">
+    <article class="mt-4 prose sm:mt-8 dark:prose-dark prose-green">
       <PortableText {blocks} {customBlockComponents} {customSpanComponents} />
     </article>
   </div>

@@ -42,6 +42,8 @@
 
   export let posts: Post[];
   export let projects: Project[];
+
+  $: emailHref = encodeURI(`mailto:${email}?subject=Hi!`);
 </script>
 
 <SEO {title} {description}></SEO>
@@ -54,7 +56,7 @@
 	</h1>
 
   <div class="flex items-center mt-4 space-x-4">
-    <a href="mailto:{email}?subject=Hi!" class="transition hover:text-green-600">
+    <a href={emailHref} class="transition hover:text-green-600">
       <At height="2.5rem"/>
     </a>
     <a href={linkedInUrl} class="transition hover:text-green-600">

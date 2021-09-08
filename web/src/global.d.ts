@@ -34,6 +34,8 @@ type Person = Pick<Sanity.Schema.Person, "name"> & { avatar: ImageProps };
 
 interface ImageProps {
   aspectRatio?: number,
+  width?: number,
+  height?: number,
   placeholder?: string,
   src: string,
   srcset?: string,

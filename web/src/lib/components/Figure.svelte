@@ -6,10 +6,10 @@
   export let featured: boolean = false;
 </script>
 
-<figure class:featured={featured} class:not-featured={!featured} class="w-full mx-auto">
+<figure class:featured={featured} class:not-featured={!featured} class="mx-auto">
   <Image {...image}></Image>
   {#if caption}
-    <figcaption class="text-center">{caption}</figcaption>
+    <figcaption class="text-center dark:text-gray-400 font-semibold">{caption}</figcaption>
   {/if}
 </figure>
 

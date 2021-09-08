@@ -35,7 +35,7 @@ export const generateImage = ({ asset, crop, hotspot }: SanityImage, width: numb
     placeholder,
     src: assetSrc.url(),
     srcset: assetSrc.url(),
-    alt: 'test'
+    alt: asset.altText ?? ""
   };
 };
 
@@ -55,10 +55,12 @@ export const generateImages = ({ asset, crop, hotspot }: SanityImage): ImageProp
 
   return {
     aspectRatio,
+    width: asset.metadata.dimensions.width,
+    height: asset.metadata.dimensions.height,
     placeholder,
     src: assetSrc.url(),
-    srcset: widthsPreset.map(w => assetSrc.width(w).url() + ' ' + w + 'w').join(','),
-    alt: 'test'
+    srcset: widthsPreset.filter(w => w <= asset.metadata.dimensions.width).map(w => assetSrc.width(w).url() + ' ' + w + 'w').join(','),
+    alt: asset.altText ?? ""
   };
 };
 
